@@ -18,11 +18,11 @@ typedef struct GNode {
 typedef PtrToGNode Graph;
 
 //创建图
-Graph  CreateGraph(int Size)
+Graph  CreateGraph(int VertexNum)
 {
 	Graph graph = (Graph)malloc(sizeof(struct GNode));
 	graph->Ne = 0;
-	graph->Nv = Size;
+	graph->Nv = VertexNum;
 	for (int i = 0; i < graph->Nv; i++)
 	{
 		for (int j = 0; j < graph->Nv; j++)
