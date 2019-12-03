@@ -100,3 +100,18 @@ void InsertEdge(Graph graph, Edge edge)
 	Node->next = graph->graph[edge->v2].first;
 	graph->graph[edge->v2].first = Node->next;
 }
+
+//深度优先遍历
+void DFS(LGraph graph, int v,int *visited)
+{
+	PtrToAdjNode *Node;
+	visited[v] = true;
+
+	for (Node = graph->G[v].first; Node; Node = Node->next)
+	{
+		if (!visited[Node->AdjV])
+		{
+			DFS(graph, Node->AdjV, visited);
+		}
+	}
+}
