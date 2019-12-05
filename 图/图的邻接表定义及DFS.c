@@ -46,7 +46,7 @@ void InsertEdge(Graph graph, Edge edge)
 	Node->weight = edge->weight;
 	//将v1插入v2
 	Node->next = graph->graph[edge->v1].first;
-	graph->graph[edge->v1].first = Node->next;
+	graph->graph[edge->v1].first = Node;
 
 	//新建邻接点
 	PtrToAdjVNode Node2 = (PtrToAdjVNode)malloc(sizeof(struct AdjVNode));
