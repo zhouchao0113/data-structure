@@ -26,19 +26,19 @@ typedef struct GNode {
 	int Nv;//顶点数量
 	AdjList graph;
 }*PtrToGNode;
-typedef PtrToGNode Graph;
+typedef PtrToGNode LGraph;
 
 //初始化图
-Graph CreateGraph(int VertexNum)
+LGraph CreateGraph(int VertexNum)
 {
-	Graph graph = (Graph)malloc(sizeof(struct GNode));
+	LGraph graph = (Graph)malloc(sizeof(struct GNode));
 	graph->Nv = VertexNum;
 	graph->Ne = 0;
 	for (int i = 0; i < VertexNum; i++) graph->graph[i].first = NULL;
 }
 
 //插入边
-void InsertEdge(Graph graph, Edge edge)
+void InsertEdge(LGraph graph, Edge edge)
 {
 	//新建邻接点
 	PtrToAdjVNode Node = (PtrToAdjVNode)malloc(sizeof(struct AdjVNode));
