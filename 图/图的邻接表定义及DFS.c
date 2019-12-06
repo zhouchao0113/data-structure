@@ -9,7 +9,7 @@ typedef PtrToENode Edge;
 
 //定义邻接点
 typedef struct AdjVNode {
-	int AdjV;//邻接点
+	int v;//邻接点下标
 	int weight;//边权重
 	struct AdjVNode *next;//下一个邻接点
 }*PtrToAdjVNode;
