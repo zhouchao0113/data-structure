@@ -13,12 +13,12 @@ typedef PtrToENode Edge;
 typedef struct GNode {
 	int Nv;//顶点数
 	int Ne;//结点数
-	int Graph[MaxSize][MaxSize];//临接矩阵
+	int G[MaxSize][MaxSize];//临接矩阵
 } *PtrToGNode;
-typedef PtrToGNode Graph;
+typedef PtrToGNode MGraph;
 
 //创建图
-Graph  CreateGraph(int VertexNum)
+MGraph  CreateGraph(int VertexNum)
 {
 	Graph graph = (Graph)malloc(sizeof(struct GNode));
 	graph->Ne = 0;
@@ -27,17 +27,17 @@ Graph  CreateGraph(int VertexNum)
 	{
 		for (int j = 0; j < graph->Nv; j++)
 		{
-			graph->Graph[i][j] = Infinity;
+			graph->G[i][j] = Infinity;
 		}
 	}
 	return graph;
 }
 
 //将边插入图
-void InsertEdge(Graph graph, Edge edge)
+void InsertEdge(MGraph graph, Edge edge)
 {
-	graph->Graph[edge->v1][edge->v2] = edge->weight;
-	graph->Graph[edge->v2][edge->v1] = edge->weight;
+	graph->G[edge->v1][edge->v2] = edge->weight;
+	graph->G[edge->v2][edge->v1] = edge->weight;
 }
 
 //队列定义
