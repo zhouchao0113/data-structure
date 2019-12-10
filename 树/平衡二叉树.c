@@ -15,12 +15,13 @@ typedef struct AVLNode {
 }*PtrToAVLNode;
 typedef PtrToAVLNode AVLTree;
 
-//根节点r, 某个子孙节点v
-//深度：从v走到r的边数
-//高度：一棵树的最大深度即高度，约定空树高度为 - 1
-//得到树高
+//深度是从根节点数到它的叶节点，高度是从叶节点数到它的根节点
+//二叉树的深度是从根节点开始（其深度为1）自顶向下逐层累加的；而二叉树高度是从叶节点开始（其高度为1）自底向上逐层累加的。
+//空树的深度定义为-1
+
 int getHeight(AVLTree t)
 {
+	if(!t) return 0;
 	return t->height;
 }
 
@@ -109,7 +110,7 @@ AVLTree Insert(AVLTree t, int x)
 		}
 	}
 
-	t->height = Max(getHeight(t->left), getHeight(t->right));//更新树高
+	t->height = Max(getHeight(t->left), getHeight(t->right)) + 1;//更新树高
 
 	return t;
 }
